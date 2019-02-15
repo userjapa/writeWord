@@ -1,21 +1,18 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div class="game">
+    <div class="game__media">
+      <div class="game__media__img">
+        <img :src="question.img" alt="Question Image">
+      </div>
+      <div class="game__media__audio">
+        <audio :src="question.audio" controls></audio>
+      </div>
+    </div>
+    <div class="game__question">
+      <div class="game__question__text">
+        {{ question.text }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,13 +21,17 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      question: {
+        img: 'https://www.worldatlas.com/r/w728-h425-c728x425/upload/4b/18/e8/tv-television-watching.jpg',
+        audio: 'https://vignette.wikia.nocookie.net/leagueoflegends/images/3/3d/Taric.death01.ogg/revision/latest?cb=20160407223640',
+        text: 'My light never dims'
+      }
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
